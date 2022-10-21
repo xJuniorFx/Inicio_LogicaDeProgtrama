@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+<script>
+	
+function pulaLinha(){
+	document.write("<br><br>")
+}	
+function titulo(titulo){
+	document.write("<h1>" + titulo + "</h1>")
+	pulaLinha()
+}
+function desemvolvimento(texto){
+	document.write(texto)
+	pulaLinha()
+}
+function final(conclusão){
+	document.write(conclusão)
+	pulaLinha()
+}
+
+var minhaIdade = 21
+var idadeIrmão = 17
+
+titulo("Diferença de idades");
+
+desemvolvimento("Eu nasci em janeiro de 2001, ja meu irmão nasceu em dezembro de 2004, considerando essas informações.");
+
+final("Podemos afirmar que a nossa diferença de idade é de aproximadamente " + (minhaIdade - idadeIrmão) + " anos.");
+
+</script>
