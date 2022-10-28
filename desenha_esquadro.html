@@ -1,0 +1,27 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    function desenharEsquadro (xa, ya, xc, yc, corTE, corTI) { //corTE -> Cor do Triangulo Externo. 
+        //Triangulo maior (externo).                            //corTI - > Cor do Triangulo Interno.
+        pincel.fillStyle = corTE;
+        pincel.beginPath();
+        pincel.moveTo(xa, ya);      //ponto A do triangulo externo.
+        pincel.lineTo(xa, yc);         //ponto B do triangulo externo.
+        pincel.lineTo(xc, yc);        //ponto C do triangulo externo.
+        pincel.fill();
+        //Triangulo menor (interno).
+        pincel.fillStyle = corTI;
+        pincel.beginPath();
+        pincel.moveTo((xa * 2), ((yc - xa)/2));              //ponto A do triangulo interno.
+        pincel.lineTo((xa * 2), (yc - xa));                    //ponto B do triangulo interno.
+        pincel.lineTo(((xa * 2) +(yc - xa)/2) , (yc - xa));    //ponto C do triangulo interno.
+        pincel.fill();
+    }
+
+    desenharEsquadro(50, 50, 400, 400, "darkblue", "grey");
+
+</script>
