@@ -1,0 +1,91 @@
+<meta charset = "UTF-8">
+
+<input/>
+<button>compare com o meu codigos</button>
+
+
+<script>
+
+	alert("Nosso sistema pensou em um numero de 0 a 10, será que você consegue acertal qual é esse numero? ")
+
+	function sorteia(){
+
+		return Math.round(Math.random() * 10);
+	}
+
+	function sorteiaNumeros(quantidade){
+
+		var codigos = [];
+
+		var numero = 1;
+
+		while ( numero <= quantidade){
+
+			var numeroAleatorio = sorteia();
+
+			if(numeroAleatorio !== 0){
+
+					var achou = false
+
+					for(var posicao = 0; posicao < codigos.length; posicao++){
+
+						if(codigos[posicao] == numeroAleatorio) {
+							achou = true
+							break
+						}		
+
+					}
+
+					if(achou == false){
+						codigos.push(numeroAleatorio);
+						numero++
+
+					}
+
+			}
+		}
+
+		return codigos;
+	}
+	
+	var codigos = sorteiaNumeros(1);
+
+	console.log(codigos);
+
+	var input = document.querySelector("input");
+	
+	input.focus();
+
+	function verifica(){
+
+		var achou = false;
+
+	    for(var posicao = 0; posicao < codigos.length; posicao++){
+	    
+		    if (input.value == codigos[posicao]){
+		    	
+		    	alert("Você acertou!!");
+
+		    	achou = true;
+
+		    	break
+		    
+		    }
+
+		}	if (achou == false){
+
+		    alert("Você errou!!");
+		    	
+		    }
+		    	
+		    input.value = "";
+
+		    input.focus();
+
+	    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
